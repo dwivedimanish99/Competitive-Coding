@@ -58,13 +58,6 @@ void solve()
                     a.insert(a.end(),x/2,i.first);
                 }
             }
-            else{
-                x=d[i.first]-i.second;
-                if(x%2!=0){cout<<-1<<endl;return;}
-                else{
-                    a.insert(a.end(),x/2,i.first);
-                }
-            }
         }
     }
 
@@ -84,22 +77,20 @@ void solve()
                     b.insert(b.end(),x/2,i.first);
                 }
             }
-            else{
-                x=c[i.first]-i.second;
-                if(x%2!=0){cout<<-1<<endl;return;}
-                else{
-                    b.insert(b.end(),x/2,i.first);
-                }
-            }
         }
     }
-    ll cost1=0,cost2=0,cost=0,ma=c.begin()->first,mb=d.begin()->first;
-    ma=min(ma,mb);
-    for(int i=0;i<a.size();i++)
+
+/*for(auto i:a)cout<<i<<" ";
+cout<<endl;
+for(auto i:b)cout<<i<<" ";
+cout<<c.begin()->first<<" "<<d.begin()->first;
+sort(a.begin(),a.end());
+sort(b.begin(),b.end());*/
+    ll mcd=min(c.begin()->first,d.begin()->first);
+    ll cost=0;
+    for(ll i=0;i<a.size();i++)
     {
-        cost1=min(ma*2,a[i]);
-        cost2=min(ma*2,b[i]);
-        cost+=min(cost1,cost2);
+        cost+=min(min(b[i],a[i]),mcd*2);
     }
 
     cout<<cost<<endl;
