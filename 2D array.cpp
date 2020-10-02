@@ -1,5 +1,9 @@
 */ Given a 2D array of size N x N. Rotate the array 90 degrees anti-clockwise. /*
 
+#include<bits/stdc++.h>
+
+using namespace std;
+
 
 void rotate(int a [][1000],int n){
 
